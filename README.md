@@ -14,7 +14,24 @@
 | File | Purpose |
 |------|---------|
 | `orb_screener_score.py` | Live screener — fetches Binance 4H data for 8 coins, computes signals |
+| `screener_no_agent.py` | Cron job runner — parses screener output, checks MEXC account, executes trades |
+| `mexc_api.py` | MEXC Futures API wrapper — auth, balance, positions, order execution |
 | `backtest_365d.py` | 365-day backtest across the screener universe |
+
+## Setup
+
+1. Create `mexc_config.json` in the same directory:
+```json
+{"api_key": "your_key", "secret": "your_secret"}
+```
+2. Run the screener:
+```bash
+python3 orb_screener_score.py
+```
+3. Run the full pipeline (screener + trade execution):
+```bash
+python3 screener_no_agent.py
+```
 
 ## 365-Day Backtest Results (Jun 2025 – Jun 2026)
 
